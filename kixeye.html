@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+</head >
+<body>
+
+  <form id="form">
+
+    Browser:
+    <label><input type="radio" name="browser" value="3.08">IE</label>
+    <label><input type="radio" name="browser" value="2.24">Firefox</label>
+    <label><input type="radio" name="browser" value="0">Chrome</label>
+
+    <hr />
+
+    Country:
+    <label><input type="radio" name="country" value="-0.47">USA</label>
+    <label><input type="radio" name="country" value="0">China</label>
+    <label><input type="radio" name="country" value="-0.13">France</label>
+    <label><input type="radio" name="country" value="1.57">Japan</label>
+    <label><input type="radio" name="country" value="0">Canada</label>
+    <label><input type="radio" name="country" value="-0.24">Germany</label>
+    <label><input type="radio" name="country" value="0.74">Mexico</label>
+
+    <hr />
+
+    Tutorial? <input type="checkbox" id="tutorial" />
+
+    <hr />
+
+    <input type="submit" value="Will I return tomorrow?" />
+  </form>
+
+<script type="text/javascript">
+
+$('#form').submit(function() {
+  var country = $( "input:radio[name=country]:checked" ).val();
+  var browser = $( "input:radio[name=browser]:checked" ).val();
+
+  if(!country || !browser) {
+    alert('please fill out all fields');
+    return false;
+  }
+  var tutorial = $("#tutorial").is(':checked') ? 2.55 : 0;
+  var result = parseFloat(country) + parseFloat(browser) + tutorial;
+  result = 1/(1 + Math.exp(-result));
+  //alert(result);
+  //results = new Array("No way!", "No", "Maybe", "Yes", "Absolutely")
+  result = result >= Math.random() ? "Yes" : "No"
+  alert(result);
+  return false;
+});
+
+</script>
+
+
+</body>
+</html>
