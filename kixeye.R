@@ -13,7 +13,6 @@ summary(l)
 l = lm(mydata$retainted ~ mydata$tutorial)
 l = glm(mydata$retainted ~ mydata$tutorial, family=binomial(logit))
 summary(l)
-plot(mydata&tutorial, mydata&retainted)
 plot(mydata$tutorial, mydata$retainted)
 sum(mydata$tutorial==mydata$retainted)
 plot(mydata$tutorial, mydata$retainted)
@@ -21,7 +20,6 @@ lc = glm(mydata$retainted ~ mydata$country, family=binomial(logit))
 summary(lc)
 drop1(lc, test='Chisq')
 lc = glm(mydata$retainted ~ data.frame(mydata$country), family=binomial(logit))
-data.frame
 data.frame(mydata$country)
 mydata$country[1:100,]
 mydata$country[1:100]
